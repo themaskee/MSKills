@@ -1,6 +1,7 @@
 # **MSKills - Kill Reward Plugin** [MIT]([https://choosealicense.com/licenses/mit/](https://github.com/themaskee/MSKills/blob/master/LICENSE))
 A professional Minecraft kill reward system with advanced features like cooldowns, IP checking, sound effects, and multi-language support.
 
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)]([https://choosealicense.com/licenses/mit/](https://github.com/themaskee/MSKills/blob/master/LICENSE))
 ## 🚀 Features
 * **Core Functionality**
 * **Kill Rewards:** Customizable rewards for player kills
