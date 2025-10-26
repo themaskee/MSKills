@@ -164,7 +164,9 @@ Have an idea? Submit feature requests on our GitHub page!
 
 ## 🏆 Credits
 Developer: Mask
+
 Contributors: MinyusBey
+
 Special Thanks: @wrusie
 
 
