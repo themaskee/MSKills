@@ -171,7 +171,7 @@ Special Thanks: @wrusie
 
 
 # 🔗 Links
-[Download]()
+# [Download](https://github.com/themaskee/MSKills/releases/download/Beta/MSKills-1.0-BETA.jar)
 
 [GitHub Repository]()
 
