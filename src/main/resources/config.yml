@@ -1,0 +1,307 @@
+# MSKills Configuration
+# Advanced Kill Reward System with Full Customization
+
+# Reward Settings
+reward:
+  enabled: true
+  commands:
+    - "eco give %player% 100"
+    - "give %player% diamond 1"
+    - "broadcast &e%player% &6has killed &c%victim%&6!"
+
+# Security Settings
+security:
+  ip-check: true # alts check for kill abuse
+
+# Cooldown Settings
+cooldown:
+  enabled: true
+  time: 300  # 5 minutes in seconds (per-victim cooldown)
+  global: 60 # 1 minute in seconds (global cooldown, 0 to disable)
+
+# Sound Effects
+sounds:
+  enabled: true
+  reward:
+    enabled: true
+    sound: "entity.player.levelup"
+    volume: 1.0
+    pitch: 1.0
+  denied:
+    enabled: true
+    sound: "entity.villager.no"
+    volume: 1.0
+    pitch: 1.0
+
+# ActionBar Messages
+actionbar:
+  enabled: true
+  reward:
+    enabled: true
+    message: "&#FF0000+10★ &ffor killing %victim%!"
+    duration: 60 # 3 seconds (20 ticks = 1 second)
+  denied:
+    enabled: true
+    message: "&#FF0000No reward for killing"
+    duration: 60
+
+# Database Settings
+storage:
+  type: "sqlite" # sqlite or mysql
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "killrewards"
+    username: "root"
+    password: ""
+    table-prefix: "killreward_"
+
+# Language Settings
+language: "en"
+
+# Time Format Settings
+# Available formats: default, compact, detailed
+time-format: "default"
+
+# Debug Mode
+debug: false
+
+# Performance Settings
+performance:
+  async-threads: 2
+
+# Command Settings - Configure command behavior
+commands:
+  # Command aliases
+  aliases: ["killreward", "kr"]
+
+  # Command permissions
+  permissions:
+    admin: "reward.admin"
+    bypass: "reward.bypass"
+    use: "reward.use"
+
+  # Tab completion settings
+  tab-complete: true
+
+# Feature Names - Customize how features are displayed
+features:
+  rewards: "Rewards"
+  ipcheck: "IP Check"
+  cooldown: "Cooldown"
+  sound: "Sounds"
+  actionbar: "ActionBar"
+  debug: "Debug Mode"
+
+# Settings Names - Customize how settings are displayed
+settings:
+  cooldown: "Cooldown"
+  globalcooldown: "Global Cooldown"
+  rewardsound: "Reward Sound"
+  deniedsound: "Denied Sound"
+  rewardmessage: "Reward Message"
+  deniedmessage: "Denied Message"
+  timeformat: "Time Format"
+
+# Time Units - Customize time display
+time-units:
+  # English time units
+  en:
+    second: "second"
+    second_short: "s"
+    second_plural: "seconds"
+    minute: "minute"
+    minute_short: "m"
+    minute_plural: "minutes"
+    hour: "hour"
+    hour_short: "h"
+    hour_plural: "hours"
+    day: "day"
+    day_short: "d"
+    day_plural: "days"
+
+  # Turkish time units
+  tr:
+    second: "saniye"
+    second_short: "sn"
+    second_plural: "saniye"
+    minute: "dakika"
+    minute_short: "dk"
+    minute_plural: "dakika"
+    hour: "saat"
+    hour_short: "sa"
+    hour_plural: "saat"
+    day: "gün"
+    day_short: "g"
+    day_plural: "gün"
+
+# Status Display - Customize status command output
+status:
+  header: "&6&lMSKills Status"
+  line-format: "&7%feature%: %status%"
+  enabled-text: "&aEnabled"
+  disabled-text: "&cDisabled"
+  # Status items to display (order matters)
+  items:
+    - "rewards"
+    - "ipcheck"
+    - "cooldown"
+    - "sound"
+    - "actionbar"
+    - "debug"
+    - "language"
+    - "storage"
+    - "cooldown-time"
+    - "global-cooldown"
+
+# Help Display - Customize help command output
+help:
+  header: "&6&lMSKills Commands"
+  line-format: "&e%command% &7- %description%"
+  # Command list (order matters)
+  commands:
+    help:
+      command: "/reward help"
+      description: "Show this help menu"
+    status:
+      command: "/reward status"
+      description: "Show plugin status"
+    reload:
+      command: "/reward reload"
+      description: "Reload configuration"
+    toggle:
+      command: "/reward toggle <feature>"
+      description: "Toggle features on/off"
+    set:
+      command: "/reward set <setting> <value>"
+      description: "Change settings"
+    test-sound:
+      command: "/reward test sound [sound]"
+      description: "Test reward sounds"
+    test-actionbar:
+      command: "/reward test actionbar [message]"
+      description: "Test actionbar messages"
+    clearcache:
+      command: "/reward clearcache"
+      description: "Clear cooldown cache"
+    language:
+      command: "/reward language <en|tr>"
+      description: "Change language"
+    message:
+      command: "/reward message <key> <value>"
+      description: "Edit messages"
+
+# Messages (Multi-language support)
+# Use placeholders: %player%, %victim%, %time%, %feature%, %state%, %language%, %sound%, %format%, %setting%
+messages:
+  en:
+    # Command messages
+    no-permission: "&cYou don't have permission to use this command!"
+    config-reloaded: "&aConfiguration reloaded successfully!"
+    feature-toggled: "&aFeature &e%feature% &ahas been %state%&a!"
+    language-changed: "&aLanguage changed to &e%language%&a!"
+    debug-enabled: "&aDebug mode enabled!"
+    debug-disabled: "&cDebug mode disabled!"
+    cooldown-set: "&aCooldown set to &e%time%&a!"
+    global-cooldown-set: "&aGlobal cooldown set to &e%time%&a!"
+    sound-set: "&aSound set to &e%sound%&a!"
+    actionbar-message-set: "&aActionBar message set!"
+    time-format-set: "&aTime format set to &e%format%&a!"
+    cache-cleared: "&aCooldown cache cleared successfully!"
+
+    # Feature toggle messages
+    rewards-enabled: "&aRewards enabled!"
+    rewards-disabled: "&cRewards disabled!"
+    ip-check-enabled: "&aIP Check enabled!"
+    ip-check-disabled: "&cIP Check disabled!"
+    cooldown-enabled: "&aCooldown system enabled!"
+    cooldown-disabled: "&cCooldown system disabled!"
+    sound-enabled: "&aSounds enabled!"
+    sound-disabled: "&cSounds disabled!"
+    actionbar-enabled: "&aActionBar messages enabled!"
+    actionbar-disabled: "&cActionBar messages disabled!"
+
+    # Kill event messages
+    same-ip: "&cYou cannot receive rewards for killing players with the same IP!"
+    cooldown: "&cYou must wait &e%time% &cbefore killing this player again!"
+    global-cooldown: "&cYou must wait &e%time% &cbefore killing anyone again!"
+    reward-given: "&aYou received rewards for killing &e%victim%&a!"
+    self-kill: "&cYou cannot receive rewards for killing yourself!"
+
+    # Command usage messages
+    usage-toggle: "&cUsage: /reward toggle <feature>"
+    usage-set: "&cUsage: /reward set <setting> <value>"
+    usage-test: "&cUsage: /reward test <sound|actionbar> [value]"
+    usage-language: "&cUsage: /reward language <en|tr>"
+    usage-message: "&cUsage: /reward message <key> <value>"
+
+    # Feature lists
+    features-list: "&7Available features: &erewards, ipcheck, cooldown, sound, actionbar, debug"
+    settings-list: "&7Available settings: &ecooldown, globalcooldown, rewardsound, deniedsound, rewardmessage, deniedmessage, timeformat"
+
+    # Error messages
+    player-not-found: "&cPlayer not found!"
+    invalid-number: "&cInvalid number!"
+    invalid-time-format: "&cInvalid time format! Use: default, compact, or detailed"
+    invalid-sound: "&cInvalid sound!"
+    invalid-language: "&cInvalid language! Available: en, tr"
+    invalid-feature: "&cUnknown feature: &e%feature%"
+    invalid-setting: "&cUnknown setting: &e%setting%"
+    invalid-test-type: "&cInvalid test type. Use: sound, actionbar"
+    player-only-command: "&cThis command can only be used by players!"
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+  tr:
+    # Command messages
+    no-permission: "&cBu komutu kullanma izniniz yok!"
+    config-reloaded: "&aYapılandırma başarıyla yeniden yüklendi!"
+    feature-toggled: "&aÖzellik &e%feature% &a%state%&a!"
+    language-changed: "&aDil &e%language% &aolarak değiştirildi!"
+    debug-enabled: "&aHata ayıklama modu etkinleştirildi!"
+    debug-disabled: "&cHata ayıklama modu devre dışı bırakıldı!"
+    cooldown-set: "&aBekleme süresi &e%time% &aolarak ayarlandı!"
+    global-cooldown-set: "&aGlobal bekleme süresi &e%time% &aolarak ayarlandı!"
+    sound-set: "&aSes &e%sound% &aolarak ayarlandı!"
+    actionbar-message-set: "&aActionBar mesajı ayarlandı!"
+    time-format-set: "&aZaman formatı &e%format% &aolarak ayarlandı!"
+    cache-cleared: "&aBekleme önbelleği başarıyla temizlendi!"
+
+    # Feature toggle messages
+    rewards-enabled: "&aÖdüller etkinleştirildi!"
+    rewards-disabled: "&cÖdüller devre dışı bırakıldı!"
+    ip-check-enabled: "&aIP Kontrolü etkinleştirildi!"
+    ip-check-disabled: "&cIP Kontrolü devre dışı bırakıldı!"
+    cooldown-enabled: "&aBekleme süresi etkinleştirildi!"
+    cooldown-disabled: "&cBekleme süresi devre dışı bırakıldı!"
+    sound-enabled: "&aSesler etkinleştirildi!"
+    sound-disabled: "&cSesler devre dışı bırakıldı!"
+    actionbar-enabled: "&aActionBar mesajları etkinleştirildi!"
+    actionbar-disabled: "&cActionBar mesajları devre dışı bırakıldı!"
+
+    # Kill event messages
+    same-ip: "&cAynı IP'ye sahip oyuncuları öldürerek ödül alamazsınız!"
+    cooldown: "&cBu oyuncuyu tekrar öldürmeden önce &e%time% &cbeklemelisiniz!"
+    global-cooldown: "&cBaşka birini öldürmeden önce &e%time% &cbeklemelisiniz!"
+    reward-given: "&a&e%victim%&a adlı oyuncuyu öldürerek ödül aldınız!"
+    self-kill: "&cKendinizi öldürerek ödül alamazsınız!"
+
+    # Command usage messages
+    usage-toggle: "&cKullanım: /reward toggle <özellik>"
+    usage-set: "&cKullanım: /reward set <ayar> <değer>"
+    usage-test: "&cKullanım: /reward test <ses|actionbar> [değer]"
+    usage-language: "&cKullanım: /reward language <en|tr>"
+    usage-message: "&cKullanım: /reward message <anahtar> <değer>"
+
+    # Feature lists
+    features-list: "&7Mevcut özellikler: &eödüller, ipcheck, bekleme, ses, actionbar, debug"
+    settings-list: "&7Mevcut ayarlar: &ebekleme, globalbekleme, ödülsesi, redsesi, ödülmesajı, redmesajı, zamanformatı"
+
+    # Error messages
+    player-not-found: "&cOyuncu bulunamadı!"
+    invalid-number: "&cGeçersiz sayı!"
+    invalid-time-format: "&cGeçersiz zaman formatı! Kullanın: default, compact, detailed"
+    invalid-sound: "&cGeçersiz ses!"
+    invalid-language: "&cGeçersiz dil! Mevcut: en, tr"
+    invalid-feature: "&cBilinmeyen özellik: &e%feature%"
+    invalid-setting: "&cBilinmeyen ayar: &e%setting%"
+    invalid-test-type: "&cGeçersiz test türü. Kullanın: ses, actionbar"
+    player-only-command: "&cBu komut sadece oyuncular tarafından kullanılabilir!"

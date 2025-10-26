@@ -1,0 +1,27 @@
+name: MSKills
+version: 1.0.0
+main: com.mskplugins.mskills.KillRewardPlugin
+api-version: 1.21
+author: Mask
+description: Advanced player kill reward system with anti-abuse protection
+website: www.maskstudios.com.tr
+
+commands:
+  reward:
+    description: Manage kill reward settings
+    usage: |
+      /reward reload - Reload configuration
+      /reward toggle <feature> [true/false] - Toggle features
+      /reward status - Show current settings  
+      /reward debug - Toggle debug mode
+      /reward testsound [sound] - Test sounds
+      /reward testactionbar [message] - Test actionbars
+    permission: reward.admin
+    aliases: [killreward, kr, mskills]
+permissions:
+  reward.admin:
+    description: Admin permissions for MSKills
+    default: op
+  reward.bypass:
+    description: Bypass cooldown and IP checks
+    default: op
